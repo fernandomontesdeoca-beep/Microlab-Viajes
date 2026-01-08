@@ -28,49 +28,63 @@ import {
   AlertTriangle 
 } from 'lucide-react';
 
-// --- IMPORTANTE: CONFIGURACIÓN ---
+// --- CONFIGURACIÓN INTELIGENTE (HÍBRIDA) ---
+// Este bloque detecta automáticamente si estás en el Chat (Preview) o en tu PC (Local/Producción).
 
-/* 1. PARA TU PROYECTO LOCAL (VS Code):
-     Descomenta el bloque "1" y comenta/borra el bloque "2".
-     Esto leerá tu archivo .env real.
-*/
-  // BLOQUE 1
-  const firebaseConfig = {
-    apiKey: import.meta.env.VITE_API_KEY,
-    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-    projectId: import.meta.env.VITE_PROJECT_ID,
-    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_APP_ID
-  };
-  const appId = "microlab-app"; // Un nombre fijo para tu app local
+let firebaseConfig;
+let appId;
+let isConfigured = false;
 
-
-// 2. PARA ESTA VISTA PREVIA (CANVAS):
-// BLOQUE 2
-// const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
-
-// CORRECCIÓN DEL ERROR: Sanitizamos el ID para quitar barras "/" que rompen Firestore
-const rawAppId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-const appId = rawAppId.replace(/[^\w-]/g, '_'); 
+// 1. Detectar Entorno de Chat/Preview
+if (typeof __firebase_config !== 'undefined') {
+  try {
+    firebaseConfig = JSON.parse(__firebase_config);
+    // Sanitizar appId para evitar errores de ruta en el entorno de prueba
+    const rawAppId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+    appId = rawAppId.replace(/[^\w-]/g, '_'); 
+    isConfigured = true;
+  } catch (e) {
+    console.error("Error cargando config del chat", e);
+  }
+} 
+// 2. Detectar Entorno Local/Producción (Vite)
+else {
+  try {
+    // Usamos una referencia segura a import.meta para evitar advertencias del compilador del chat
+    const env = import.meta.env || {};
+    
+    firebaseConfig = {
+      apiKey: env.VITE_API_KEY,
+      authDomain: env.VITE_AUTH_DOMAIN,
+      projectId: env.VITE_PROJECT_ID,
+      storageBucket: env.VITE_STORAGE_BUCKET,
+      messagingSenderId: env.VITE_MESSAGING_SENDER_ID,
+      appId: env.VITE_APP_ID
+    };
+    
+    // En producción usamos una ID fija o la del entorno
+    appId = env.VITE_APP_ID || 'microlab-prod';
+    isConfigured = !!(firebaseConfig.apiKey && firebaseConfig.projectId);
+  } catch (e) {
+    console.warn("No se pudo leer configuración local (esto es normal en el preview del chat).");
+  }
+}
 
 // Inicializar Firebase
 let app, auth, db;
-const isConfigured = !!firebaseConfig;
-
 if (isConfigured) {
   try {
     app = initializeApp(firebaseConfig);
     auth = getAuth(app);
     db = getFirestore(app);
   } catch (e) {
-    console.error("Firebase init error", e);
+    console.error("Error inicializando Firebase:", e);
+    isConfigured = false;
   }
 }
 
 // --- COMPONENTE PRINCIPAL ---
 export default function App() {
-  // Evitar renderizar si no hay configuración para prevenir errores
   if (!isConfigured) {
     return <ConfigErrorScreen />;
   }
@@ -86,10 +100,11 @@ export default function App() {
   useEffect(() => {
     const initAuth = async () => {
       try {
+        // Prioridad al token del chat si existe, sino anónimo
         if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-          await signInWithCustomToken(auth, __initial_auth_token);
+            await signInWithCustomToken(auth, __initial_auth_token);
         } else {
-          await signInAnonymously(auth);
+            await signInAnonymously(auth);
         }
       } catch (error) {
         console.error("Error de autenticación:", error);
@@ -125,13 +140,17 @@ export default function App() {
   useEffect(() => {
     if (!user || !db) return;
     
-    // Usamos el appId sanitizado.
-    // Estructura: artifacts -> {appId_limpio} -> users -> {uid} -> mis_notas
-    const notesRef = collection(db, 'artifacts', appId, 'users', user.uid, 'mis_notas');
-    
-    // NOTA PARA LOCAL: En tu código final en VS Code, puedes simplificar a:
-    // const notesRef = collection(db, 'users', user.uid, 'mis_notas');
-    
+    // NOTA: Para el chat usamos 'artifacts', para local usamos ruta directa.
+    // Esta lógica adapta la ruta según dónde se ejecute.
+    let notesRef;
+    if (typeof __firebase_config !== 'undefined') {
+        // Ruta segura para el Chat
+        notesRef = collection(db, 'artifacts', appId, 'users', user.uid, 'mis_notas');
+    } else {
+        // Ruta limpia para Producción/Local
+        notesRef = collection(db, 'users', user.uid, 'mis_notas');
+    }
+
     const q = query(notesRef);
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -139,7 +158,7 @@ export default function App() {
         const data = doc.data();
         return {
           id: doc.id,
-          text: data.text || '', // Asegurar que siempre sea string
+          text: data.text || '',
           completed: !!data.completed,
           createdAt: data.createdAt
         };
@@ -159,7 +178,13 @@ export default function App() {
     e.preventDefault();
     if (!newNote.trim() || !user || !db) return;
     try {
-      const notesRef = collection(db, 'artifacts', appId, 'users', user.uid, 'mis_notas');
+      let notesRef;
+      if (typeof __firebase_config !== 'undefined') {
+          notesRef = collection(db, 'artifacts', appId, 'users', user.uid, 'mis_notas');
+      } else {
+          notesRef = collection(db, 'users', user.uid, 'mis_notas');
+      }
+
       await addDoc(notesRef, {
         text: newNote,
         completed: false,
@@ -174,13 +199,23 @@ export default function App() {
 
   const toggleComplete = async (note) => {
     if (!user || !db) return;
-    const noteRef = doc(db, 'artifacts', appId, 'users', user.uid, 'mis_notas', note.id);
+    let noteRef;
+    if (typeof __firebase_config !== 'undefined') {
+        noteRef = doc(db, 'artifacts', appId, 'users', user.uid, 'mis_notas', note.id);
+    } else {
+        noteRef = doc(db, 'users', user.uid, 'mis_notas', note.id);
+    }
     await updateDoc(noteRef, { completed: !note.completed });
   };
 
   const deleteNote = async (id) => {
     if (!user || !db) return;
-    const noteRef = doc(db, 'artifacts', appId, 'users', user.uid, 'mis_notas', id);
+    let noteRef;
+    if (typeof __firebase_config !== 'undefined') {
+        noteRef = doc(db, 'artifacts', appId, 'users', user.uid, 'mis_notas', id);
+    } else {
+        noteRef = doc(db, 'users', user.uid, 'mis_notas', id);
+    }
     await deleteDoc(noteRef);
   };
 
@@ -230,7 +265,7 @@ export default function App() {
                   {note.completed ? <CheckCircle2 size={24} /> : <Circle size={24} />}
                 </button>
                 <span className={`truncate text-gray-800 ${note.completed ? 'line-through text-gray-400' : ''}`}>
-                  {note.text} {/* Asegurado que es string arriba */}
+                  {note.text}
                 </span>
               </div>
               <button 
