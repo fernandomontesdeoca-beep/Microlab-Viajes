@@ -44,11 +44,11 @@ import {
     appId: import.meta.env.VITE_APP_ID
   };
   const appId = "microlab-app"; // Un nombre fijo para tu app local
-*/
+
 
 // 2. PARA ESTA VISTA PREVIA (CANVAS):
 // BLOQUE 2
-//const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+// const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
 
 // CORRECCIÓN DEL ERROR: Sanitizamos el ID para quitar barras "/" que rompen Firestore
 const rawAppId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
