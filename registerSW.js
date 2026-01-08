@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/Microlab-Viajes/sw.js', { scope: '/Microlab-Viajes/' })})}
