@@ -28,12 +28,13 @@ import {
   AlertTriangle 
 } from 'lucide-react';
 
-// --- IMPORTANTE: CONFIGURACIÓN HÍBRIDA ---
+// --- IMPORTANTE: CONFIGURACIÓN ---
 
-/* 1. PARA TU PROYECTO LOCAL (VITE):
-     Cuando copies esto a tu VS Code, DESCOMENTA este bloque y BORRA el bloque "2".
-     Esto leerá las claves de tu archivo .env real.
+/* 1. PARA TU PROYECTO LOCAL (VS Code):
+     Descomenta el bloque "1" y comenta/borra el bloque "2".
+     Esto leerá tu archivo .env real.
 */
+  // BLOQUE 1
   const firebaseConfig = {
     apiKey: import.meta.env.VITE_API_KEY,
     authDomain: import.meta.env.VITE_AUTH_DOMAIN,
@@ -42,14 +43,16 @@ import {
     messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
     appId: import.meta.env.VITE_APP_ID
   };
-
+  const appId = "microlab-app"; // Un nombre fijo para tu app local
+*/
 
 // 2. PARA ESTA VISTA PREVIA (CANVAS):
+// BLOQUE 2
 //const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
 
-// Sanitizamos el appId para evitar errores de rutas con caracteres especiales (como /)
+// CORRECCIÓN DEL ERROR: Sanitizamos el ID para quitar barras "/" que rompen Firestore
 const rawAppId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-const appId = rawAppId.replace(/[^\w-]/g, '_');
+const appId = rawAppId.replace(/[^\w-]/g, '_'); 
 
 // Inicializar Firebase
 let app, auth, db;
@@ -67,6 +70,7 @@ if (isConfigured) {
 
 // --- COMPONENTE PRINCIPAL ---
 export default function App() {
+  // Evitar renderizar si no hay configuración para prevenir errores
   if (!isConfigured) {
     return <ConfigErrorScreen />;
   }
@@ -93,12 +97,16 @@ export default function App() {
       }
     };
 
-    initAuth();
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    if (auth) {
+      initAuth();
+      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+        setLoading(false);
+      });
+      return () => unsubscribe();
+    } else {
       setLoading(false);
-    });
-    return () => unsubscribe();
+    }
   }, []);
 
   // 2. Manejo de Conexión
@@ -115,21 +123,28 @@ export default function App() {
 
   // 3. Sincronización de Datos
   useEffect(() => {
-    if (!user) return;
+    if (!user || !db) return;
     
-    // Ruta segura sanitizada: /artifacts/{appId}/users/{userId}/mis_notas
+    // Usamos el appId sanitizado.
+    // Estructura: artifacts -> {appId_limpio} -> users -> {uid} -> mis_notas
     const notesRef = collection(db, 'artifacts', appId, 'users', user.uid, 'mis_notas');
     
-    // NOTA PARA LOCAL: En tu código final puedes usar:
+    // NOTA PARA LOCAL: En tu código final en VS Code, puedes simplificar a:
     // const notesRef = collection(db, 'users', user.uid, 'mis_notas');
     
     const q = query(notesRef);
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      const notesData = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
+      const notesData = snapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          text: data.text || '', // Asegurar que siempre sea string
+          completed: !!data.completed,
+          createdAt: data.createdAt
+        };
+      });
+      
       notesData.sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
       setNotes(notesData);
     }, (error) => {
@@ -142,7 +157,7 @@ export default function App() {
   // --- ACCIONES ---
   const handleAddNote = async (e) => {
     e.preventDefault();
-    if (!newNote.trim() || !user) return;
+    if (!newNote.trim() || !user || !db) return;
     try {
       const notesRef = collection(db, 'artifacts', appId, 'users', user.uid, 'mis_notas');
       await addDoc(notesRef, {
@@ -158,13 +173,13 @@ export default function App() {
   };
 
   const toggleComplete = async (note) => {
-    if (!user) return;
+    if (!user || !db) return;
     const noteRef = doc(db, 'artifacts', appId, 'users', user.uid, 'mis_notas', note.id);
     await updateDoc(noteRef, { completed: !note.completed });
   };
 
   const deleteNote = async (id) => {
-    if (!user) return;
+    if (!user || !db) return;
     const noteRef = doc(db, 'artifacts', appId, 'users', user.uid, 'mis_notas', id);
     await deleteDoc(noteRef);
   };
@@ -175,7 +190,7 @@ export default function App() {
       <div className="flex h-screen w-full items-center justify-center bg-gray-50">
         <div className="text-center">
           <div className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent mx-auto"></div>
-          <p className="mt-4 text-gray-500 font-medium">Conectando con la nube...</p>
+          <p className="mt-4 text-gray-500 font-medium">Cargando...</p>
         </div>
       </div>
     );
@@ -215,7 +230,7 @@ export default function App() {
                   {note.completed ? <CheckCircle2 size={24} /> : <Circle size={24} />}
                 </button>
                 <span className={`truncate text-gray-800 ${note.completed ? 'line-through text-gray-400' : ''}`}>
-                  {note.text}
+                  {note.text} {/* Asegurado que es string arriba */}
                 </span>
               </div>
               <button 
@@ -280,6 +295,7 @@ function ConfigErrorScreen() {
       <h1 className="text-2xl font-bold text-red-700 mb-2">Error de Configuración</h1>
       <p className="text-red-600 mb-6 max-w-sm">
         No se pudo detectar la configuración de Firebase. 
+        Revisa que tengas el archivo .env y las claves correctas.
       </p>
     </div>
   );
