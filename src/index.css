@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Estilos base para asegurar que la app ocupe toda la pantalla */
+/* Estilos base */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,7 +20,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #f3f4f6; /* gris suave */
+  background-color: #f3f4f6;
 }
 
 #root {
