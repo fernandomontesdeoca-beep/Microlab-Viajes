@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex items-center bg-background-light dark:bg-background-dark p-4 border-b border-slate-200 dark:border-slate-800">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Llegada a Cliente</h2>
+</header>
+<main class="flex-1 overflow-y-auto pb-32">
+<!-- HeadlineText -->
+<div class="px-4 py-8">
+<h1 class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight text-center">
+                ¡Llegada al Cliente B!
+            </h1>
+<p class="text-slate-500 dark:text-slate-400 text-center mt-2 font-medium">Trayecto completado con éxito</p>
+</div>
+<!-- Stats Section -->
+<div class="px-4 mb-6">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-primary/10 border border-primary/20 items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary text-3xl mb-1">route</span>
+<p class="text-primary text-sm font-semibold uppercase tracking-wider">Total Km Recorridos</p>
+<p class="text-slate-900 dark:text-white tracking-tight text-4xl font-extrabold leading-tight">20 km</p>
+</div>
+</div>
+<!-- SectionHeader -->
+<div class="px-4 mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Desglose Reparto 50/50</h3>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Los kilómetros se dividen equitativamente entre visitas.</p>
+</div>
+<!-- Split Breakdown Cards -->
+<div class="px-4 space-y-3">
+<!-- Card 1: Cliente A (Closing) -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#1c2127] p-4 shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex flex-col gap-1 flex-[2_2_0px]">
+<div class="flex items-center gap-2">
+<span class="text-primary text-[10px] font-bold px-2 py-0.5 bg-primary/10 rounded-full">ANTERIOR</span>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight mt-1">Visita Cliente A</p>
+<p class="text-emerald-600 dark:text-emerald-400 text-sm font-bold leading-normal">+10 km (Cierre)</p>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 overflow-hidden" data-alt="Map view of previous location A" data-location="Madrid, Spain" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKr2c0HhOIDOy2QQ9a3oVVl8GalwBN1gD9nWXKMzTrVP8YEXRhwG7VALB38q7EC7dr3Zp2S747BxB1WktYsH8nqFcs_9i4ZWhm7_Nx8lAs-36sytLpqChucJ4rhxdArchX6HDESf0CHV9oTw-_Jq1yW-SsuKm_30B2R0JM5LKH-Rs5VfeoTHStKe8bKQ-ymV3vgkSsK1z8YwYgxX7jUCLMISrCbNaaiHQbOhsoAXMS7XnTi9Ff-HU9ZJ_vmHJfttAABWzPB5rqgwQ");'>
+</div>
+</div>
+<!-- Visual Divider Link -->
+<div class="flex justify-center -my-2 relative z-10">
+<div class="bg-background-light dark:bg-background-dark p-1 rounded-full">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-600">swap_calls</span>
+</div>
+</div>
+<!-- Card 2: Cliente B (Opening) -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#1c2127] p-4 shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex flex-col gap-1 flex-[2_2_0px]">
+<div class="flex items-center gap-2">
+<span class="text-primary text-[10px] font-bold px-2 py-0.5 bg-primary/10 rounded-full">ACTUAL</span>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight mt-1">Visita Cliente B</p>
+<p class="text-primary text-sm font-bold leading-normal">+10 km (Inicio)</p>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 overflow-hidden" data-alt="Map view of arrival location B" data-location="Barcelona, Spain" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCiF0XFEO6xcVRapJ5MmgCNjWORn_V7TutFQD4ChxOYzlCQlEh70dc-WkJZ9ZCYvZ5Cu-w72hIHEln-74yrW9UCZCVPnMdWiogyQ7FvTIpZNw-EctfzzS-f1LGJFnNIlh8RKNMQsfIPp-uUDtvm7hljMh1hyDI5C-gFHDVJUFDa4YQ5cuWeKokMBkbaMrPTKQPWBX-uUqShWbXqpaD_ESkapzTtj_t5nl3erhE9D4f8R1LfjTO3vETLO9vtYQThLJ20VLIklv-M3S0");'>
+</div>
+</div>
+</div>
+<!-- Form Section -->
+<div class="px-4 mt-8 pb-10">
+<label class="block text-slate-900 dark:text-white text-sm font-bold mb-2" for="odometer">Odómetro Final</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
+<span class="material-symbols-outlined">speed</span>
+</span>
+<input class="block w-full rounded-xl bg-white dark:bg-[#1c2127] border-slate-200 dark:border-slate-800 py-4 pl-12 pr-4 text-slate-900 dark:text-white focus:border-primary focus:ring-primary text-xl font-bold" id="odometer" name="odometer" placeholder="Ingrese kilometraje actual" type="number"/>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-2 italic">Basado en lectura anterior de 12,450 km</p>
+</div>
+</main>
+<!-- Bottom Action Button -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-t border-slate-200 dark:border-slate-800">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">check_circle</span>
+            CONFIRMAR LLEGADA Y ABRIR NUEVA VISITA
+        </button>
+</div>
+</body></html>

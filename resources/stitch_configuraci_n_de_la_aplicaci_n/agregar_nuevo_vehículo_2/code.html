@@ -1,0 +1,176 @@
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agregar Nuevo Vehículo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: max(884px, 100dvh);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<header class="sticky top-0 z-10 bg-background-light dark:bg-background-dark border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto w-full">
+<button class="text-slate-900 dark:text-white flex size-10 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">
+                Agregar Vehículo
+            </h2>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto w-full max-w-md mx-auto pb-32">
+<form class="flex flex-col gap-2 p-4">
+<div class="flex flex-col gap-2 py-2">
+<label class="flex flex-col w-full">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2 px-1">Nombre del Vehículo</p>
+<input class="form-input flex w-full rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#1c2127] focus:border-primary h-14 placeholder:text-slate-400 dark:placeholder:text-[#9dabb9] p-4 text-base font-normal" placeholder="Ej. Camioneta Ford" type="text"/>
+</label>
+</div>
+<div class="flex flex-col gap-2 py-2">
+<label class="flex flex-col w-full">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2 px-1">Matrícula</p>
+<input class="form-input flex w-full rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#1c2127] focus:border-primary h-14 placeholder:text-slate-400 dark:placeholder:text-[#9dabb9] p-4 text-base font-normal uppercase" placeholder="AAA 1234" type="text"/>
+</label>
+</div>
+<div class="py-2">
+<h3 class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal px-1 pb-2">Tipo de Vehículo</h3>
+<div class="flex h-12 w-full items-center justify-center rounded-xl bg-slate-200 dark:bg-[#283039] p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary dark:has-[:checked]:text-white text-slate-500 dark:text-[#9dabb9] text-sm font-semibold transition-all">
+<span class="truncate">Personal</span>
+<input checked="" class="hidden" name="vehicle_type" type="radio" value="personal"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary dark:has-[:checked]:text-white text-slate-500 dark:text-[#9dabb9] text-sm font-semibold transition-all">
+<span class="truncate">Empresa</span>
+<input class="hidden" name="vehicle_type" type="radio" value="company"/>
+</label>
+</div>
+</div>
+<div class="py-2">
+<h3 class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal px-1 pb-2">Tipo de Energía</h3>
+<div class="flex h-12 w-full items-center justify-center rounded-xl bg-slate-200 dark:bg-[#283039] p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary dark:has-[:checked]:text-white text-slate-500 dark:text-[#9dabb9] text-sm font-semibold transition-all">
+<span class="truncate">Combustible</span>
+<input checked="" class="hidden" name="energy_type" type="radio" value="fuel"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary dark:has-[:checked]:text-white text-slate-500 dark:text-[#9dabb9] text-sm font-semibold transition-all">
+<span class="truncate">Eléctrico</span>
+<input class="hidden" name="energy_type" type="radio" value="electric"/>
+</label>
+</div>
+</div>
+<div class="flex flex-col gap-2 py-2">
+<label class="flex flex-col w-full">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2 px-1">Odómetro Inicial (km)</p>
+<div class="relative">
+<input class="form-input flex w-full rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#1c2127] focus:border-primary h-14 placeholder:text-slate-400 dark:placeholder:text-[#9dabb9] p-4 pr-12 text-base font-normal" placeholder="0" type="number"/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-xl">speed</span>
+</div>
+</div>
+</label>
+</div>
+<div class="flex flex-col gap-4 py-2" id="fuel-fields">
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col w-full">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-[1.1] pb-2 px-1 min-h-[36px] flex items-end">
+                            Tipo de<br/>Combustible
+                        </p>
+<div class="relative">
+<select class="form-select flex w-full rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#1c2127] focus:border-primary h-14 p-4 text-base font-normal appearance-none">
+<option value="">Seleccionar combustible</option>
+<option selected="" value="super95">Nafta Súper 95</option>
+<option value="premium97">Nafta Premium 97</option>
+<option value="gasoil50s">Gasoil 50S</option>
+<option value="gasoil10s">Gasoil 10S</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col w-full">
+<div class="flex flex-col pb-2 px-1 min-h-[36px]">
+<div class="flex justify-between items-baseline w-full">
+<span class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-[1.1]">Valor Actual</span>
+<span class="text-[9px] uppercase font-bold text-primary tracking-tighter">PRECIO</span>
+</div>
+<div class="flex justify-between items-baseline w-full">
+<span class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-[1.1]">(UYU/Lt)</span>
+<span class="text-[9px] uppercase font-bold text-primary tracking-tighter">SUGERIDO</span>
+</div>
+</div>
+<div class="relative">
+<input class="form-input flex w-full rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#1c2127] focus:border-primary h-14 placeholder:text-slate-400 dark:placeholder:text-[#9dabb9] p-4 text-base font-normal" step="0.01" type="number" value="77.54"/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-xl">edit</span>
+</div>
+</div>
+</div>
+</div>
+<p class="text-[11px] text-slate-500 dark:text-slate-400 px-1 italic">El precio se actualiza automáticamente según el mercado en Uruguay.</p>
+</div>
+<div class="hidden grid grid-cols-2 gap-4 py-2" id="electric-fields">
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-xs font-medium leading-normal pb-2 px-1">Carga CC (UYU/kWh)</p>
+<input class="form-input flex w-full rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#1c2127] focus:border-primary h-14 placeholder:text-slate-400 dark:placeholder:text-[#9dabb9] p-4 text-base font-normal" placeholder="0.00" step="0.01" type="number"/>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-xs font-medium leading-normal pb-2 px-1">Carga CA (UYU/kWh)</p>
+<input class="form-input flex w-full rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#1c2127] focus:border-primary h-14 placeholder:text-slate-400 dark:placeholder:text-[#9dabb9] p-4 text-base font-normal" placeholder="0.00" step="0.01" type="number"/>
+</label>
+</div>
+</form>
+</main>
+<footer class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 p-4 pb-8">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98]">
+                GUARDAR VEHÍCULO
+            </button>
+</div>
+</footer>
+
+</body></html>

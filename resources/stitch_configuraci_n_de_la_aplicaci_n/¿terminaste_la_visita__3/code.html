@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cerrar Visita e Iniciar Viaje</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#1c2630",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: max(884px, 100dvh);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="absolute inset-0 z-0">
+<div class="h-full w-full bg-[#1a222c] opacity-40">
+<img alt="Map Background" class="h-full w-full object-cover grayscale brightness-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBgQHvOsS1FAayw72-Xdz956uAr00RP0ie2SseQkfiy8fo1HKXVb422USrikpXYbQDN055_tLlD9k3EarNFDO5uSVAzCbvJvGbGtlChA8Z7dkqETrR5NfPld2poK-qKHwpCNZyxorTCC4M6wvjLjK2rYWMmrmTviNLtF2gfr0FtzP-0K-F_aNZwP6CEGYQYRXTzK27CJA9XzENu75enyOoCUrrkdJ5hkiqu0XuXThmSm2r1Ckwio48DUiDCMEsxNdraM3Olg0J8qQ"/>
+</div>
+</div>
+<div class="fixed inset-0 bg-black/60 z-10"></div>
+<div class="fixed inset-x-0 bottom-0 z-20 flex flex-col items-stretch max-h-[95vh]">
+<div class="bg-[#111418] rounded-t-3xl shadow-2xl flex flex-col pb-8 pt-2 overflow-y-auto">
+<div class="flex h-6 w-full items-center justify-center shrink-0">
+<div class="h-1.5 w-12 rounded-full bg-[#3b4754]"></div>
+</div>
+<div class="flex items-center px-4 py-2 justify-between shrink-0">
+<div class="w-12"></div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center font-display">Egreso de Cliente</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex size-10 items-center justify-center rounded-full bg-[#283039] hover:bg-[#3b4754] transition-colors">
+<span class="material-symbols-outlined text-white text-[20px]">close</span>
+</button>
+</div>
+</div>
+<div class="px-6 py-4 shrink-0">
+<h3 class="text-white tracking-tight text-2xl font-bold leading-tight text-center font-display">¿Terminaste la visita?</h3>
+</div>
+<div class="px-6 py-2 shrink-0">
+<div class="flex h-12 w-full items-center justify-center rounded-xl bg-[#283039] p-1.5">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-primary has-[:checked]:text-white text-[#9dabb9] text-sm font-bold leading-normal transition-all">
+<span class="truncate">SÍ</span>
+<input checked="" class="invisible w-0" name="visit-status" type="radio" value="SÍ"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-primary has-[:checked]:text-white text-[#9dabb9] text-sm font-bold leading-normal transition-all">
+<span class="truncate">NO</span>
+<input class="invisible w-0" name="visit-status" type="radio" value="NO"/>
+</label>
+</div>
+</div>
+<div class="mt-4 px-6">
+<h3 class="text-white text-base font-bold leading-tight tracking-[-0.015em] pb-3 pt-2 font-display">¿Cuál es tu próximo destino?</h3>
+<div class="grid grid-cols-2 gap-3">
+<label class="relative flex flex-col items-center gap-2 p-4 rounded-xl bg-[#1c2630] border-2 border-transparent has-[:checked]:border-primary hover:border-primary/50 cursor-pointer transition-all">
+<div class="flex size-10 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">home</span>
+</div>
+<span class="text-white text-sm font-medium">Casa</span>
+<input class="absolute opacity-0" name="destination" type="radio" value="casa"/>
+</label>
+<label class="relative flex flex-col items-center gap-2 p-4 rounded-xl bg-[#1c2630] border-2 border-transparent has-[:checked]:border-primary hover:border-primary/50 cursor-pointer transition-all">
+<div class="flex size-10 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">work</span>
+</div>
+<span class="text-white text-sm font-medium">Trabajo</span>
+<input class="absolute opacity-0" name="destination" type="radio" value="trabajo"/>
+</label>
+<label class="relative flex flex-col items-center gap-2 p-4 rounded-xl bg-[#1c2630] border-2 border-transparent has-[:checked]:border-primary hover:border-primary/50 cursor-pointer transition-all">
+<div class="flex size-10 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">person_pin_circle</span>
+</div>
+<span class="text-white text-sm font-medium">Cliente</span>
+<input class="absolute opacity-0" name="destination" type="radio" value="cliente"/>
+</label>
+<label class="relative flex flex-col items-center gap-2 p-4 rounded-xl bg-[#1c2630] border-2 border-transparent has-[:checked]:border-primary hover:border-primary/50 cursor-pointer transition-all">
+<div class="flex size-10 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<span class="text-white text-sm font-medium">Alimentación</span>
+<input class="absolute opacity-0" name="destination" type="radio" value="alimentacion"/>
+</label>
+<label class="relative flex flex-col items-center gap-2 p-4 rounded-xl bg-[#1c2630] border-2 border-transparent has-[:checked]:border-primary hover:border-primary/50 cursor-pointer transition-all">
+<div class="flex size-10 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">hotel</span>
+</div>
+<span class="text-white text-sm font-medium">Hotel</span>
+<input class="absolute opacity-0" name="destination" type="radio" value="hotel"/>
+</label>
+<label class="relative flex flex-col items-center gap-2 p-4 rounded-xl bg-[#1c2630] border-2 border-transparent has-[:checked]:border-primary hover:border-primary/50 cursor-pointer transition-all">
+<div class="flex size-10 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">more_horiz</span>
+</div>
+<span class="text-white text-sm font-medium">Otro</span>
+<input class="absolute opacity-0" name="destination" type="radio" value="otro"/>
+</label>
+</div>
+</div>
+<div class="px-6 mt-6">
+<label class="block text-sm font-bold text-[#9dabb9] mb-2 uppercase tracking-wider" for="odometer">Odómetro Inicial</label>
+<div class="relative">
+<input class="w-full bg-[#1c2630] border-none focus:ring-2 focus:ring-primary rounded-xl p-4 text-white text-lg font-semibold placeholder:text-[#3b4754]" id="odometer" placeholder="Ej. 124500" required="" type="number"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-[#3b4754] font-bold">km</div>
+</div>
+<p class="text-xs text-[#5c6d7e] mt-2 italic">* El odómetro es obligatorio para iniciar el viaje.</p>
+</div>
+<div class="px-6 pt-6 shrink-0">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg transition-transform active:scale-[0.98] font-display">
+                        Iniciar Viaje y Cerrar Visita
+                    </button>
+<p class="text-center text-[#9dabb9] text-xs mt-4 px-4 pb-4">
+                        Se registrará el horario, ubicación y kilometraje inicial del viaje.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

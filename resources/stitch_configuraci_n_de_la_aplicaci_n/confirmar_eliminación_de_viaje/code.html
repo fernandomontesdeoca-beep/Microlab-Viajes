@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Confirmar Eliminación de Viaje</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee2b2b",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display">
+<!-- Background Context (Trip Detail Mockup) -->
+<div class="fixed inset-0 z-0 overflow-hidden blur-sm opacity-40">
+<div class="flex flex-col h-full bg-[#181111] p-4">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined text-white">arrow_back</span>
+<h1 class="text-white text-xl font-bold">Detalles del Viaje</h1>
+</div>
+<div class="bg-[#2a1a1a] rounded-xl p-4 mb-4 border border-[#3d2727]">
+<div class="flex justify-between items-center mb-4">
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Viaje #4521</span>
+<span class="text-white/60 text-xs">15 Oct, 2023</span>
+</div>
+<div class="flex gap-4 mb-4">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+<div class="w-0.5 h-12 bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<div class="flex flex-col justify-between py-0.5">
+<div class="text-white text-sm">Oficina Central, Madrid</div>
+<div class="text-white text-sm">Sede Norte, Alcobendas</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-white/10 pt-4">
+<div>
+<p class="text-white/40 text-[10px] uppercase font-bold">Distancia</p>
+<p class="text-white font-semibold">12.4 km</p>
+</div>
+<div>
+<p class="text-white/40 text-[10px] uppercase font-bold">Duración</p>
+<p class="text-white font-semibold">24 min</p>
+</div>
+</div>
+</div>
+<div class="h-40 w-full rounded-xl bg-neutral-800 relative overflow-hidden">
+<img alt="Mapa de la ruta" class="w-full h-full object-cover opacity-50" data-alt="Abstract dark map of city streets and routes" data-location="Madrid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYmgMla3LpvYLWXI36bY5qCwnPUi8ZulNrbLgEBxFwGYkgKfu_zsdlIANJaSEgWuwyvtFlHo10uDlFVweQ8HDzhR00lLgudQWXWnvb62e9czA_Uy0RrJmZu3qKlrv7Mwy7wGD0BgdyKCSVLloYOwxchYYAZqUqoAleIobRsW41AfXOwv_OYTeussJWQbwJsQh3ktu9iZWwhtBiMFwXLgd-fLAEhERgAXCJxqh02_plq6LvsGES32uNbkF47ZTjykOuicj3aGIl5vk"/>
+</div>
+</div>
+</div>
+<!-- Modal Overlay Backdrop -->
+<div class="fixed inset-0 z-10 bg-black/70 flex items-center justify-center p-6">
+<!-- Confirmation Modal Container -->
+<div class="relative w-full max-w-sm flex flex-col bg-[#181111] dark:bg-[#181111] rounded-xl shadow-2xl border border-white/5 overflow-hidden">
+<!-- Close Button (Top Right) -->
+<div class="flex items-center bg-transparent p-4 pb-0 justify-end">
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-transparent text-white/50 hover:text-white transition-colors gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">cancel</span>
+</button>
+</div>
+</div>
+<!-- Content Area -->
+<div class="flex flex-col items-center px-6 pb-2">
+<!-- Alert Icon -->
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">delete_forever</span>
+</div>
+<!-- HeadlineText -->
+<h3 class="text-white tracking-tight text-2xl font-bold leading-tight text-center pb-2">
+                    ¿Eliminar este viaje?
+                </h3>
+<!-- BodyText -->
+<p class="text-white/70 text-base font-normal leading-relaxed pb-3 pt-1 text-center">
+                    Esta acción no se puede deshacer. Si el viaje es parte de una visita, los cálculos de tiempo y kilómetros se verán afectados.
+                </p>
+</div>
+<!-- ButtonGroup -->
+<div class="flex justify-center">
+<div class="flex flex-1 gap-3 max-w-[480px] flex-col items-stretch px-6 py-6 pt-2">
+<!-- Destructive Action -->
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] w-full shadow-lg shadow-primary/20 hover:bg-primary/90 transition-colors">
+<span class="truncate uppercase">ELIMINAR</span>
+</button>
+<!-- Cancel Action -->
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-[#392828] text-white text-base font-bold leading-normal tracking-[0.015em] w-full hover:bg-[#4a3535] transition-colors">
+<span class="truncate uppercase">CANCELAR</span>
+</button>
+</div>
+</div>
+<!-- BottomSheetHandle/Indicator for mobile feel -->
+<div class="flex h-1.5 w-full items-center justify-center pb-3">
+<div class="h-1 w-10 rounded-full bg-white/10"></div>
+</div>
+</div>
+</div>
+</body></html>
