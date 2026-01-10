@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registro de Estacionamiento Actualizado</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#2b8cee",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101922",
+                "surface-dark": "#1c222b",
+                "input-dark": "#111418"
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100dvh;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+<style type="text/tailwindcss">
+        :root {
+            --primary: #2b8cee;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-hidden">
+<div class="relative min-h-screen w-full flex flex-col filter blur-sm grayscale-[0.3]">
+<div class="flex items-center bg-[#111418] p-4 pb-2 justify-between border-b border-gray-800">
+<div class="text-white flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Ruta del Día</h2>
+<div class="flex w-12 items-center justify-end">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-6">
+<div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
+<p class="text-gray-400 text-sm">Cliente Actual</p>
+<h3 class="text-xl font-bold">Distribuidora Central</h3>
+<p class="text-gray-500 text-sm">Calle Principal 123, Zona 10</p>
+</div>
+<div class="w-full h-64 bg-gray-800 rounded-xl flex items-center justify-center overflow-hidden" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCsIEdIPNih3U_7dCCUbsuCYNX2tPKjkPIo1OOZGEjy9kFMI_oT_mWj-GAbz_h51OUF6KOVhOOSAa7zNHvrKLigqoAQKVaRdWcOECAlZkWaQmDR94vKOqFxVCkpUdb1_6400SfQAfiMm6-oc0UaxTKyMTI3FOlvssPxsGZYefFg5aaaDrUtsdMW0ywgkpDHZAczGUY1q7LtQ_V6oyQATsGgw18FrmRyrms2GbWnjhUQ-SGMuV0Cgs5Hj_cnMqPXXPl_Bq2ZSeaB_hI'); background-size: cover;">
+</div>
+<div class="mt-auto pb-10">
+<button class="w-full bg-primary/50 text-white font-bold py-5 rounded-xl shadow-lg uppercase tracking-wider">
+                    INICIAR NUEVO VIAJE
+                </button>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 bg-black/70 backdrop-blur-md flex items-end sm:items-center justify-center z-50 p-4">
+<div class="w-full max-w-md bg-surface-dark rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden">
+<div class="flex items-center justify-between p-4 border-b border-gray-800">
+<div class="w-10"></div>
+<h2 class="text-white text-lg font-bold">Salida de Cliente</h2>
+<button class="flex size-10 items-center justify-center rounded-full bg-gray-800/50 text-white">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="max-h-[85vh] overflow-y-auto">
+<div class="flex pt-6 px-6 flex-col items-center">
+<div class="flex flex-col items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-16 w-16 mb-2 border-2 border-primary/20" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSPgCjY-NOoooGRKA5HJyXrUCfoo-GjPHhh2r3JEcjp3yzsmmLJeOr5m3KBTWqWexliNa9MSx8LpYAvYL4WSv9ps_kFLQd8Zh_NLDuAut4qn-_QeUoPfDCgdnJ-v-7miGl1qFMxpzvFGENlAEGoAL4vgco_pLKjy2vfci8S7fpqKvSSO8aA_V_V6SjMzYWUMLOzVgwq-WRK2gnTp7S1HQSKyRcRObZG2sYhtAvfrPl0jQHgiJXDHW4GdvMJWmvS6zLoG-YcVpk924");'></div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Visita Finalizada</p>
+<p class="text-white text-lg font-bold leading-tight text-center">Distribuidora Central</p>
+</div>
+</div>
+</div>
+<div class="px-6 py-4">
+<h3 class="text-white text-xl font-bold leading-tight text-center">¿Pagaste estacionamiento?</h3>
+</div>
+<div class="flex justify-center px-6 pb-4">
+<div class="flex w-full gap-3">
+<button class="flex-1 flex items-center justify-center rounded-xl h-12 bg-primary text-white text-sm font-bold transition-all border-2 border-primary">
+<span class="material-symbols-outlined text-lg mr-2">check_circle</span>
+                            SÍ
+                        </button>
+<button class="flex-1 flex items-center justify-center rounded-xl h-12 bg-gray-800/40 text-gray-400 text-sm font-bold transition-all border-2 border-transparent">
+<span class="material-symbols-outlined text-lg mr-2">cancel</span>
+                            NO
+                        </button>
+</div>
+</div>
+<div class="px-6 pb-6 space-y-4">
+<div class="bg-input-dark/50 rounded-2xl p-4 border border-gray-800/50 space-y-4">
+<div class="grid grid-cols-12 gap-3">
+<div class="col-span-8 flex flex-col gap-1.5">
+<label class="text-[11px] font-bold text-gray-500 uppercase tracking-wider ml-1">Monto</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-primary font-bold text-lg">$</span>
+<input class="w-full bg-input-dark border-gray-800 rounded-xl h-12 pl-8 pr-4 text-white focus:ring-2 focus:ring-primary focus:border-transparent text-lg font-semibold" placeholder="0.00" step="0.01" type="number"/>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-1.5">
+<label class="text-[11px] font-bold text-gray-500 uppercase tracking-wider ml-1">Moneda</label>
+<select class="w-full bg-input-dark border-gray-800 rounded-xl h-12 px-3 text-white focus:ring-2 focus:ring-primary focus:border-transparent appearance-none font-medium">
+<option value="UYU">UYU</option>
+<option value="USD">U$D</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-[11px] font-bold text-gray-500 uppercase tracking-wider ml-1">Método de Pago</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-2 h-10 rounded-lg bg-primary/10 border border-primary text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-sm">credit_card</span>
+                                    Crédito
+                                </button>
+<button class="flex items-center justify-center gap-2 h-10 rounded-lg bg-input-dark border border-gray-800 text-gray-400 text-xs font-medium">
+<span class="material-symbols-outlined text-sm">payments</span>
+                                    Débito
+                                </button>
+<button class="flex items-center justify-center gap-2 h-10 rounded-lg bg-input-dark border border-gray-800 text-gray-400 text-xs font-medium">
+<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+                                    Contado
+                                </button>
+<button class="flex items-center justify-center gap-2 h-10 rounded-lg bg-input-dark border border-gray-800 text-gray-400 text-xs font-medium">
+<span class="material-symbols-outlined text-sm">sync_alt</span>
+                                    Transferencia
+                                </button>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-[11px] font-bold text-gray-500 uppercase tracking-wider ml-1">Forma de Pago</label>
+<div class="flex p-1 bg-input-dark border border-gray-800 rounded-xl w-full">
+<button class="flex-1 py-2 text-xs font-bold rounded-lg bg-gray-700 text-white shadow-sm">PERSONAL</button>
+<button class="flex-1 py-2 text-xs font-bold rounded-lg text-gray-500">EMPRESA</button>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-[11px] font-bold text-gray-500 uppercase tracking-wider ml-1">Tipo de Gasto</label>
+<div class="flex p-1 bg-input-dark border border-gray-800 rounded-xl w-full">
+<button class="flex-1 py-2 text-xs font-bold rounded-lg text-gray-500">PERSONAL</button>
+<button class="flex-1 py-2 text-xs font-bold rounded-lg bg-gray-700 text-white shadow-sm">EMPRESA</button>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-white h-14 rounded-2xl font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-3 active:scale-[0.98] transition-transform">
+<span>REGISTRAR Y EMPEZAR VIAJE</span>
+<span class="material-symbols-outlined">rocket_launch</span>
+</button>
+</div>
+</div>
+<div class="flex justify-center pb-3 pt-2">
+<div class="w-32 h-1.5 bg-gray-700/50 rounded-full"></div>
+</div>
+</div>
+</div>
+
+</body></html>

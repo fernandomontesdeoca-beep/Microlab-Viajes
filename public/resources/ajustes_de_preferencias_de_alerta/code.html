@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ajustes de Preferencias de Alerta</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#1e293b",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #334155;
+            border-radius: 20px;
+        }
+        
+        /* Toggle Switch Animation */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #2b8cee;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #2b8cee;
+        }
+        .toggle-switch {
+            transition: transform 0.2s ease-in-out;
+        }
+        .peer:checked ~ .peer-checked\:translate-x-full {
+            --tw-translate-x: 100%;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+        .peer:checked ~ .peer-checked\:bg-primary {
+            background-color: #2b8cee;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary/30">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto shadow-2xl bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<header class="sticky top-0 z-20 flex items-center justify-between bg-background-light/95 dark:bg-background-dark/95 px-4 py-3 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/60">
+<button class="flex items-center justify-center w-10 h-10 -ml-2 rounded-full text-slate-600 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back_ios_new</span>
+</button>
+<h1 class="text-base font-bold text-center flex-1 pr-8 truncate">Preferencias de Alerta</h1>
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 px-4 py-6 space-y-8 pb-12">
+<!-- Section 1: Alertas de Asistente -->
+<section>
+<h3 class="ml-1 mb-2 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Alertas de Asistente</h3>
+<div class="overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-200 dark:border-slate-700/50">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700/50">
+<div class="flex flex-col pr-4">
+<span class="text-sm font-medium text-slate-900 dark:text-white">Visita abierta (recordatorio)</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700/50">
+<div class="flex flex-col pr-4">
+<span class="text-sm font-medium text-slate-900 dark:text-white">Odómetro pendiente</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center justify-between p-4">
+<div class="flex flex-col pr-4">
+<span class="text-sm font-medium text-slate-900 dark:text-white">Sugerencia de estacionamiento</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<p class="mt-2 ml-4 text-xs text-slate-500 dark:text-slate-500">Notificaciones basadas en su ubicación actual.</p>
+</section>
+<!-- Section 2: Actualizaciones de Precios -->
+<section>
+<h3 class="ml-1 mb-2 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Actualizaciones de Precios</h3>
+<div class="overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-200 dark:border-slate-700/50">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700/50">
+<div class="flex items-center gap-3 pr-4">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined text-[18px]">local_gas_station</span>
+</div>
+<span class="text-sm font-medium text-slate-900 dark:text-white">Nuevos precios ANCAP</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-3 pr-4">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-yellow-500/10 dark:bg-yellow-500/20 text-yellow-600 dark:text-yellow-400">
+<span class="material-symbols-outlined text-[18px]">electric_bolt</span>
+</div>
+<span class="text-sm font-medium text-slate-900 dark:text-white">Nuevos precios UTE (CC/CA)</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Section 3: Reportes y Finanzas -->
+<section>
+<h3 class="ml-1 mb-2 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Reportes y Finanzas</h3>
+<div class="overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-200 dark:border-slate-700/50">
+<div class="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700/50">
+<span class="text-sm font-medium text-slate-900 dark:text-white">Liquidación mensual lista</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-4">
+<span class="text-sm font-medium text-slate-900 dark:text-white">Confirmación de envío de PDF</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Section 4: Recordatorios de Seguridad -->
+<section>
+<h3 class="ml-1 mb-2 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Recordatorios de Seguridad</h3>
+<div class="overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-200 dark:border-slate-700/50">
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-3 pr-4">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-red-500/10 dark:bg-red-500/20 text-red-600 dark:text-red-400">
+<span class="material-symbols-outlined text-[18px]">health_and_safety</span>
+</div>
+<span class="text-sm font-medium text-slate-900 dark:text-white">Aviso de descanso sugerido</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Section 5: Delivery Method -->
+<section>
+<h3 class="ml-1 mb-2 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Tipo de aviso</h3>
+<div class="rounded-xl bg-surface-light dark:bg-surface-dark p-1.5 shadow-sm border border-slate-200 dark:border-slate-700/50">
+<div class="grid grid-cols-3 gap-1">
+<!-- Option 1 -->
+<label class="cursor-pointer">
+<input class="sr-only peer" name="delivery_method" type="radio" value="push"/>
+<div class="flex flex-col items-center justify-center py-3 rounded-lg border border-transparent peer-checked:bg-primary peer-checked:text-white peer-checked:shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined mb-1 text-[20px]">notifications_active</span>
+<span class="text-xs font-medium">Push</span>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="cursor-pointer">
+<input class="sr-only peer" name="delivery_method" type="radio" value="email"/>
+<div class="flex flex-col items-center justify-center py-3 rounded-lg border border-transparent peer-checked:bg-primary peer-checked:text-white peer-checked:shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined mb-1 text-[20px]">mail</span>
+<span class="text-xs font-medium">Email</span>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="cursor-pointer">
+<input checked="" class="sr-only peer" name="delivery_method" type="radio" value="both"/>
+<div class="flex flex-col items-center justify-center py-3 rounded-lg border border-transparent peer-checked:bg-primary peer-checked:text-white peer-checked:shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined mb-1 text-[20px]">all_inclusive</span>
+<span class="text-xs font-medium">Ambos</span>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Test Button -->
+<div class="pt-4">
+<button class="relative w-full group overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark p-[1px] shadow-sm hover:shadow-md transition-shadow">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/50 to-purple-500/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative w-full h-full bg-surface-light dark:bg-surface-dark rounded-[11px] py-3.5 flex items-center justify-center gap-2 group-hover:bg-opacity-95 dark:group-hover:bg-opacity-95 transition-colors">
+<span class="material-symbols-outlined text-primary text-[20px]">phonelink_ring</span>
+<span class="text-sm font-semibold text-primary">Probar notificación de prueba</span>
+</div>
+</button>
+</div>
+</main>
+</div>
+</body></html>

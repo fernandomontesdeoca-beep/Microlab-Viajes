@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Perfil de Usuario y Ajustes</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2b8cee",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "surface-dark": "#1a242f",
+              "surface-light": "#ffffff",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Custom scrollbar hiding if needed */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary/30">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden pb-10">
+<!-- Header -->
+<div class="sticky top-0 z-10 flex items-center justify-between bg-background-light/90 dark:bg-background-dark/90 px-4 py-3 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-white" style="font-size: 24px;">arrow_back_ios_new</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight text-slate-900 dark:text-white">Mi Perfil</h2>
+<div class="size-10"></div> <!-- Spacer for visual balance -->
+</div>
+<!-- Profile Summary -->
+<div class="flex flex-col items-center justify-center py-6">
+<div class="relative mb-4">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-28 w-28 border-4 border-surface-light dark:border-surface-dark shadow-lg" data-alt="Professional avatar portrait placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCiRSIiX7bWr5nf0L7ZW-YvFKV7XdQ9eAjJJ2ywkMbFzix684XNal1m1Tt0y5LtKhS08UFu-Ndu5fSgzVFCrAKcsHuhjJu2EDSIJOFNL0wpr7cL_AzXODFCV2NCLzMaMuEEiJPBAGzqVvjioSuRaYNQr650N_coYNUoIbagIZ6dKWlMc5VRLUZXK6n2TX-6r85aIlhgt8A8eI87b6eT0DQfXkB6JLHU0lHM8-7_McIRu-1rwVZ36aHbi5zUlMTJa4gwFJ1VcNeOMZU");'>
+</div>
+<button class="absolute bottom-0 right-0 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white shadow-md hover:bg-blue-600 transition-colors border-2 border-background-light dark:border-background-dark">
+<span class="material-symbols-outlined" style="font-size: 18px;">edit</span>
+</button>
+</div>
+<h1 class="text-xl font-bold text-slate-900 dark:text-white">Juan Pérez</h1>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">juan.perez@empresa.uy</p>
+</div>
+<div class="px-4 space-y-6 max-w-lg mx-auto w-full">
+<!-- Information Sections -->
+<!-- Personal Info Card -->
+<section class="flex flex-col gap-3">
+<h3 class="ml-1 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Información Personal</h3>
+<div class="flex flex-col gap-4 rounded-xl bg-surface-light dark:bg-surface-dark p-4 shadow-sm border border-slate-200 dark:border-slate-800">
+<label class="flex flex-col gap-1.5 w-full">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Nombre Completo</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-[#111922] px-3 py-2.5 text-base text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary placeholder-slate-400" type="text" value="Juan Pérez"/>
+</label>
+<label class="flex flex-col gap-1.5 w-full">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Teléfono</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-[#111922] px-3 py-2.5 text-base text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary placeholder-slate-400" type="tel" value="+598 99 123 456"/>
+</label>
+</div>
+</section>
+<!-- Professional Info Card -->
+<section class="flex flex-col gap-3">
+<h3 class="ml-1 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Información Profesional</h3>
+<div class="flex flex-col gap-4 rounded-xl bg-surface-light dark:bg-surface-dark p-4 shadow-sm border border-slate-200 dark:border-slate-800">
+<label class="flex flex-col gap-1.5 w-full">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Empresa</span>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined" style="font-size: 20px;">domain</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-[#111922] pl-10 pr-3 py-2.5 text-base text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary placeholder-slate-400" type="text" value="Logística del Sur S.A."/>
+</div>
+</label>
+<label class="flex flex-col gap-1.5 w-full">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Cargo / Rol</span>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined" style="font-size: 20px;">badge</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-[#111922] pl-10 pr-3 py-2.5 text-base text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary placeholder-slate-400" type="text" value="Gerente de Ventas"/>
+</div>
+</label>
+</div>
+</section>
+<!-- Preferences Card -->
+<section class="flex flex-col gap-3">
+<h3 class="ml-1 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Preferencias de Reportes</h3>
+<div class="flex flex-col rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-200 dark:border-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
+<!-- Toggle Row -->
+<div class="flex items-center justify-between p-4">
+<div class="flex flex-col">
+<span class="text-base font-medium text-slate-900 dark:text-white">Reportes automáticos</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Enviar resumen mensual por email</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Segmented Control Row -->
+<div class="flex flex-col gap-3 p-4">
+<span class="text-base font-medium text-slate-900 dark:text-white">Formato de exportación</span>
+<div class="grid grid-cols-2 p-1 bg-slate-100 dark:bg-[#111922] rounded-lg">
+<button class="rounded py-1.5 text-sm font-medium bg-white dark:bg-surface-dark text-primary shadow-sm ring-1 ring-black/5 dark:ring-white/10 transition-all">PDF</button>
+<button class="rounded py-1.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Excel</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Section -->
+<section class="flex flex-col pt-2">
+<button class="flex items-center justify-between w-full rounded-xl bg-surface-light dark:bg-surface-dark p-4 shadow-sm border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-[#23303d] transition-colors group">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-8 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">lock_reset</span>
+</div>
+<span class="font-medium text-slate-900 dark:text-white">Cambiar Contraseña</span>
+</div>
+<span class="material-symbols-outlined text-slate-400" style="font-size: 20px;">chevron_right</span>
+</button>
+</section>
+<!-- Danger Zone -->
+<div class="pt-6 pb-8">
+<button class="w-full rounded-xl border border-red-200 dark:border-red-900/30 bg-red-50 dark:bg-red-900/10 py-3.5 text-center text-base font-semibold text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/20 active:scale-[0.98] transition-all">
+                    Cerrar Sesión
+                </button>
+<p class="mt-4 text-center text-xs text-slate-400 dark:text-slate-600">
+                    Versión 2.4.1 (Build 2024)
+                </p>
+</div>
+</div>
+<!-- IOS Keyboard Spacer (Simulated) -->
+<!-- <div class="h-[300px] w-full bg-[#1c2127] border-t border-[#3b4754] flex items-center justify-center text-[#9dabb9] text-sm">
+           iOS Keyboard Area (Simulated)
+        </div> -->
+</div>
+</body></html>

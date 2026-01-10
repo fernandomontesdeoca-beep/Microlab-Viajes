@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registro de Energía con Botón XL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: max(884px, 100dvh);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex items-center justify-center p-0 sm:p-4">
+<div class="relative flex h-[100dvh] sm:h-[844px] w-full max-w-[390px] flex-col bg-background-light dark:bg-background-dark overflow-hidden shadow-2xl sm:rounded-[40px] border border-gray-200 dark:border-gray-800">
+<div class="flex h-6 w-full items-center justify-center flex-shrink-0 pt-2">
+<div class="h-1.5 w-12 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+</div>
+<div class="flex items-center px-4 py-2 justify-between">
+<div class="w-12"></div>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center font-display">Registro de Combustible Detallado</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-4 pb-48">
+<div class="mt-4">
+<h3 class="text-gray-900 dark:text-white text-sm font-semibold uppercase tracking-wider mb-3 px-1 font-display">Tipo de Combustible</h3>
+<div class="flex bg-gray-100 dark:bg-gray-800 p-1 rounded-xl">
+<label class="flex cursor-pointer h-11 grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm transition-all text-gray-500 dark:text-gray-400 has-[:checked]:text-primary dark:has-[:checked]:text-white">
+<span class="truncate text-xs font-semibold">Nafta Súper</span>
+<input checked="" class="invisible w-0" name="fuel_type" type="radio" value="super"/>
+</label>
+<label class="flex cursor-pointer h-11 grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm transition-all text-gray-500 dark:text-gray-400 has-[:checked]:text-primary dark:has-[:checked]:text-white">
+<span class="truncate text-xs font-semibold">Premium</span>
+<input class="invisible w-0" name="fuel_type" type="radio" value="premium"/>
+</label>
+<label class="flex cursor-pointer h-11 grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm transition-all text-gray-500 dark:text-gray-400 has-[:checked]:text-primary dark:has-[:checked]:text-white">
+<span class="truncate text-xs font-semibold">Gasoil</span>
+<input class="invisible w-0" name="fuel_type" type="radio" value="gasoil"/>
+</label>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<div class="flex flex-col">
+<label class="text-gray-700 dark:text-gray-300 text-sm font-medium mb-1.5 ml-1">Precio por Litro ($)</label>
+<div class="flex w-full items-stretch rounded-xl overflow-hidden group">
+<input class="flex-1 bg-gray-100 dark:bg-gray-800 border-none text-gray-900 dark:text-white h-14 px-4 font-display text-lg focus:ring-1 focus:ring-primary transition-all" step="0.01" type="number" value="77.54"/>
+<div class="bg-gray-100 dark:bg-gray-800 flex items-center pr-4 text-gray-400">
+<span class="material-symbols-outlined text-xl">edit</span>
+</div>
+</div>
+<p class="text-[10px] text-primary/80 mt-1 ml-1 uppercase font-bold tracking-tighter">Referencia ANCAP actual</p>
+</div>
+<div class="flex flex-col">
+<label class="text-gray-700 dark:text-gray-300 text-sm font-medium mb-1.5 ml-1">Litros Cargados (L)</label>
+<div class="flex w-full items-stretch rounded-xl overflow-hidden">
+<input class="flex-1 bg-gray-100 dark:bg-gray-800 border-none text-gray-900 dark:text-white h-14 px-4 font-display text-lg focus:ring-1 focus:ring-primary transition-all" placeholder="0.00" type="number"/>
+<div class="bg-gray-100 dark:bg-gray-800 flex items-center pr-4 text-gray-400">
+<span class="material-symbols-outlined text-xl">opacity</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<label class="text-gray-700 dark:text-gray-300 text-sm font-medium mb-1.5 ml-1">Monto Total ($)</label>
+<div class="flex w-full items-stretch rounded-xl overflow-hidden bg-primary/10 border border-primary/20">
+<input class="flex-1 bg-transparent border-none text-primary dark:text-primary h-14 px-4 font-display text-xl font-bold focus:ring-0" placeholder="Calculado..." type="number"/>
+<div class="flex items-center pr-4 text-primary">
+<span class="material-symbols-outlined text-xl">calculate</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<h3 class="text-gray-900 dark:text-white text-sm font-semibold uppercase tracking-wider mb-3 px-1 font-display">Método de Pago</h3>
+<div class="grid grid-cols-2 gap-2">
+<label class="flex cursor-pointer items-center gap-3 p-3 rounded-xl bg-gray-100 dark:bg-gray-800 border border-transparent has-[:checked]:border-primary transition-all">
+<input checked="" class="w-4 h-4 text-primary bg-gray-200 border-gray-300 focus:ring-primary" name="method" type="radio" value="credito"/>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Crédito</span>
+</label>
+<label class="flex cursor-pointer items-center gap-3 p-3 rounded-xl bg-gray-100 dark:bg-gray-800 border border-transparent has-[:checked]:border-primary transition-all">
+<input class="w-4 h-4 text-primary bg-gray-200 border-gray-300 focus:ring-primary" name="method" type="radio" value="debito"/>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Débito</span>
+</label>
+<label class="flex cursor-pointer items-center gap-3 p-3 rounded-xl bg-gray-100 dark:bg-gray-800 border border-transparent has-[:checked]:border-primary transition-all">
+<input class="w-4 h-4 text-primary bg-gray-200 border-gray-300 focus:ring-primary" name="method" type="radio" value="contado"/>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Contado</span>
+</label>
+<label class="flex cursor-pointer items-center gap-3 p-3 rounded-xl bg-gray-100 dark:bg-gray-800 border border-transparent has-[:checked]:border-primary transition-all">
+<input class="w-4 h-4 text-primary bg-gray-200 border-gray-300 focus:ring-primary" name="method" type="radio" value="transferencia"/>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Transferencia</span>
+</label>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-4 rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">payments</span>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Forma de Pago</span>
+</div>
+<div class="flex bg-gray-200 dark:bg-gray-700 p-1 rounded-lg">
+<button class="px-3 py-1 rounded-md text-xs font-bold text-gray-500 dark:text-gray-400">PERSONAL</button>
+<button class="px-3 py-1 rounded-md bg-white dark:bg-gray-600 text-xs font-bold text-gray-900 dark:text-white shadow-sm">EMPRESA</button>
+</div>
+</div>
+<div class="flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-4 rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">receipt_long</span>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Tipo de Gasto</span>
+</div>
+<div class="flex bg-gray-200 dark:bg-gray-700 p-1 rounded-lg">
+<button class="px-3 py-1 rounded-md text-xs font-bold text-gray-500 dark:text-gray-400">PERSONAL</button>
+<button class="px-3 py-1 rounded-md bg-white dark:bg-gray-600 text-xs font-bold text-gray-900 dark:text-white shadow-sm">EMPRESA</button>
+</div>
+</div>
+</div>
+<div class="mt-8 flex items-center justify-center gap-2 p-3 bg-primary/5 rounded-lg border border-primary/10">
+<span class="material-symbols-outlined text-primary text-sm">speed</span>
+<p class="text-xs text-primary font-medium">Odómetro actual: <span class="font-bold">142.580 km</span></p>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 pb-10 bg-gradient-to-t from-background-light dark:from-background-dark via-background-light dark:via-background-dark to-transparent">
+<button class="flex w-full items-center justify-center gap-3 rounded-2xl bg-primary h-28 text-white text-xl font-black transition-transform active:scale-[0.98] shadow-2xl shadow-primary/30 border-b-4 border-primary-700/50">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-4xl mb-1">local_gas_station</span>
+<span class="tracking-tighter">REGISTRAR CARGA</span>
+</div>
+</button>
+</div>
+</div>
+
+</body></html>
